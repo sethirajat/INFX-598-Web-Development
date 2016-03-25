@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+    .tickets-by-rating,
+    .gross-by-genre {
+        width: 50%;
+    }    
+}
