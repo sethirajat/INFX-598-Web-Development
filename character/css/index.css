@@ -1,0 +1,24 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    background-color: rgba(222,121,79,0.5);
+    color: blue;
+    font-weight: 900;
+}
+
+#p01{
+    line-height: 1.5;
+    color: green;
+}
+img {
+    max-height: 400px;
+    float: left;
+    margin: 10px;
+}
+iframe{
+       border-top-width: 10px;
+       border-right-width: 10px;
+       border-bottom-width: 10px;
+       border-left-width: 10px;
+       /*float: left;*/
+}
