@@ -1,0 +1,157 @@
+body {
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+header {
+    background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0)), url(../img/pencil-header-xs.jpg);
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-bottom: 2em;
+}
+
+h1, h2 {
+	font-family: 'Source Sans Pro';
+	font-weight: 200;
+}
+
+.container {
+	padding-left: 3em;
+	padding-right: 3em;
+	width: 100%;
+}
+
+.headclass1 {
+	font-size: 6em;
+}
+
+.paraclass1 {
+	font-size: 1.5em;
+	font-weight: 100;
+	width: 50%;
+}
+
+main {
+	background-color: #E0DEDA;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	text-align: center;
+}
+
+svg {
+	width: 50px;
+	fill: #5A3822;
+}
+
+.row {
+	padding-left: 3em;
+	padding-right: 3em;
+}
+
+section {
+	background-color: #F1F2F5;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	text-align: center;
+}
+
+img {
+	width: 100%;
+}
+
+.creative {
+	font-size: 3em;
+}
+
+.Learn {
+	font-size: 1.5em;
+	font-weight: 100;
+}
+
+#description {
+	text-align: left;
+}
+
+.multi {
+	background-image: url(../img/colors-background-xs.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-top: 4em;
+	padding-bottom: 4em;
+}
+
+.colors {
+	font-size: 3em;
+	width: 50%;
+}
+
+footer {
+	background-color: #F1F2F5;
+	border-top: solid 3px #583820;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	font-size: 80%;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.icons {
+	font-size: 2em;
+	color: #2980b9;
+}
+
+@media (min-width: 768px){
+    header {
+        background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0)), url(../img/pencil-header-sm.jpg);
+        padding-bottom: 4em; 
+    }
+    section {
+        text-align: left;
+    }
+    
+     .paraclass1 {
+    	font-size: 2em;
+    }
+    
+    .creative {
+	font-size: 4em;
+	}
+
+	.multi {
+    	background-image: url(../img/colors-background-sm.jpg);  
+    }
+
+    .colors {
+	font-size: 4em;
+	}
+
+	.icons {
+		float: right;
+	}
+}
+
+@media (min-width: 992px){
+    header {
+        background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0)), url(../img/pencil-header-md.jpg);
+    }
+     .multi {
+    	background-image: url(../img/colors-background-md.jpg);  
+    }
+}
+
+@media (min-width: 1200px){
+    header {
+        background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0)), url(../img/pencil-header-lg.jpg);
+    }
+      .multi {
+    	background-image: url(../img/colors-background-lg.jpg);  
+    }
+}
+header.container {
+    
+    width: 100%;
+}
