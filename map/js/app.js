@@ -105,8 +105,6 @@ else {
 // this is a function to add a marker at the users location if the user agrees
 // to share location or the default coordinates for seattle will be used.
 function addhomemarker(lat = 47.6062, lang = -122.3321 ){
-    console.log(lat);
-    console.log(lang);
     var marker = L.marker([lat,lang]).addTo(mymap);
     marker.bindPopup("<p>This is your current location</p>").openPopup();
 }
