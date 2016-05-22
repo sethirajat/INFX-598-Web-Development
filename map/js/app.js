@@ -1,8 +1,11 @@
 "Use strict";
 
 var mymap = L.map('map').setView([47.6062, -122.3321], 13);
+// This is the url for getting the most recent 911 dispatches
 var SourceUrl = "https://data.seattle.gov/resource/grwu-wqtk.json?$where=datetime is not null&$order=datetime desc&$limit=500"
 
+// Extending the Icon class to create our own class of icons
+// Extra credit step
 var CrimeIcon = L.Icon.extend({
     options: {
         iconSize:     [38, 50],
@@ -12,18 +15,21 @@ var CrimeIcon = L.Icon.extend({
     }
 });
 
+// Creating custom icons for using as markers in different dispatch types. 
 var fireIcon = new CrimeIcon({iconUrl: 'images/fire.png'});
 var ambulanceIcon = new CrimeIcon({iconUrl: 'images/ambulance.png'});
 var firstaidIcon = new CrimeIcon({iconUrl: 'images/firstaid.png'});
 var crimesceneIcon = new CrimeIcon({iconUrl: 'images/crimescene.png'});
 
-
+// function to fetch data from the site
 function Getdata() {
     jQuery.getJSON(SourceUrl)
         .then(onSearchResults, onSearchError);
 }
 
 Getdata();
+// refreshing the data every 1 minute.
+// extra credit step
 nIntervId = setInterval(Getdata, 60000);
 
         
@@ -38,6 +44,7 @@ function addMarker(obj) {
     //console.log(obj);
     popString = "ADDRESS: " + obj.address + "\n, DATE and TIME: " + obj.datetime + "\n, TYPE OF DISPATCH: " + obj.type;
     var icon_to_use;
+    // choosing the icon based on dispatch type
     switch (obj.type) {
         case "Medic Response":
             icon_to_use = ambulanceIcon;
@@ -52,7 +59,8 @@ function addMarker(obj) {
         default:
             icon_to_use = crimesceneIcon;
     }
-    
+    // some of the records did not have coordinates, like a dumpster fire. Not adding
+    // markers for such dispatches
     if (obj.latitude != null){
         createMarker(obj.latitude, obj.longitude, popString, icon_to_use);
     }
@@ -83,17 +91,20 @@ function onGetPos(position) {
 
 function onErrorPos(err) {
     //console.log(err)
-    addhomemarker(47.6062, -122.3321);
+    addhomemarker();
 }
-
+// asking for users geolocation
+//Extra credit
 if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(onGetPos, onErrorPos);
 }
 else {
-    addhomemarker(47.6062, -122.3321);
+    addhomemarker();
 }
 
-function addhomemarker(lat, lang){
+// this is a function to add a marker at the users location if the user agrees
+// to share location or the default coordinates for seattle will be used.
+function addhomemarker(lat = 47.6062, lang = -122.3321 ){
     console.log(lat);
     console.log(lang);
     var marker = L.marker([lat,lang]).addTo(mymap);
